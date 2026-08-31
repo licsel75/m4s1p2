@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>S&amp;S - Sistema de Stock y Ventas</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed-dim": "#b7c8e1",
+                    "on-secondary-fixed": "#001a42",
+                    "surface-container": "#eceef0",
+                    "outline-variant": "#c6c6cd",
+                    "inverse-primary": "#bec6e0",
+                    "tertiary-container": "#0b1c30",
+                    "surface-container-lowest": "#ffffff",
+                    "error": "#ba1a1a",
+                    "on-secondary-container": "#fefcff",
+                    "on-primary-fixed-variant": "#3f465c",
+                    "on-tertiary-fixed-variant": "#38485d",
+                    "primary": "#000000",
+                    "surface-container-high": "#e6e8ea",
+                    "inverse-surface": "#2d3133",
+                    "inverse-on-surface": "#eff1f3",
+                    "outline": "#76777d",
+                    "primary-fixed-dim": "#bec6e0",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-highest": "#e0e3e5",
+                    "surface-dim": "#d8dadc",
+                    "on-primary": "#ffffff",
+                    "surface": "#f7f9fb",
+                    "background": "#f7f9fb",
+                    "secondary-fixed-dim": "#adc6ff",
+                    "on-surface-variant": "#45464d",
+                    "surface-bright": "#f7f9fb",
+                    "on-background": "#191c1e",
+                    "on-primary-fixed": "#131b2e",
+                    "on-primary-container": "#7c839b",
+                    "on-surface": "#191c1e",
+                    "error-container": "#ffdad6",
+                    "on-error-container": "#93000a",
+                    "primary-fixed": "#dae2fd",
+                    "secondary-fixed": "#d8e2ff",
+                    "on-tertiary-fixed": "#0b1c30",
+                    "surface-tint": "#565e74",
+                    "on-error": "#ffffff",
+                    "tertiary-fixed": "#d3e4fe",
+                    "surface-container-low": "#f2f4f6",
+                    "secondary-container": "#2170e4",
+                    "primary-container": "#131b2e",
+                    "on-tertiary-container": "#75859d",
+                    "surface-variant": "#e0e3e5",
+                    "on-secondary-fixed-variant": "#004395",
+                    "tertiary": "#000000",
+                    "secondary": "#0058be"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xs": "0.5rem",
+                    "margin-desktop": "32px",
+                    "md": "1.5rem",
+                    "base": "4px",
+                    "margin-mobile": "16px",
+                    "gutter": "24px",
+                    "xl": "3rem",
+                    "lg": "2rem",
+                    "sm": "1rem"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "label-md": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "headline-sm": ["Inter"],
+                    "headline-lg-mobile": ["Inter"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased flex flex-col min-h-screen">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-surface shadow-sm transition-all duration-150 ease-in-out">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto h-16">
+<div class="flex items-center gap-xs">
+<img alt="S&amp;S Logo" class="h-8 w-8 object-cover rounded-DEFAULT" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYIjHFzPPHdnyO8o9Cb4ZGqtKCNp-MLl9S0NUsMr1HT6mtJX5Rm7sLChXdB0V738Tcl-tNexQ2a71GhpLO6WWBZjnCbH0TEEBs0-BYsIb7Hfp250mb3d9sQdrAHLEHgHSr_YE8XXTLPOrHaPEVDlE-JLK3-TpPygzDXuPRr4YW88f9O1JdrrfFa5CC1rsv8Srx3dAv9dwOFmKas-cozihLpLHRW8G3x_KZBKjTroLM9EoNGlKIF4-yLw"/>
+<span class="text-headline-sm font-headline-sm font-bold text-primary">S&amp;S</span>
+</div>
+<!-- Mobile Menu Toggle -->
+<button class="md:hidden text-primary focus:outline-none" id="mobile-menu-toggle">
+<span class="material-symbols-outlined text-2xl">menu</span>
+</button>
+<!-- Desktop Nav -->
+<nav class="hidden md:flex items-center gap-md">
+<a class="text-label-md font-label-md text-secondary border-b-2 border-secondary pb-1" href="#">Inicio</a>
+<a class="text-label-md font-label-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Características</a>
+<a class="text-label-md font-label-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Precios</a>
+<a class="text-label-md font-label-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Contacto</a>
+<button class="bg-secondary text-on-secondary px-md py-xs rounded-lg text-label-md font-label-md hover:bg-on-secondary-fixed-variant transition-colors shadow-sm">
+                    Comenzar
+                </button>
+</nav>
+</div>
+<!-- Mobile Nav Dropdown (Hidden by default) -->
+<nav class="hidden md:hidden bg-surface-container-lowest border-t border-outline-variant absolute w-full left-0 top-16 shadow-lg flex flex-col p-margin-mobile gap-sm" id="mobile-menu">
+<a class="text-label-md font-label-md text-secondary" href="#">Inicio</a>
+<a class="text-label-md font-label-md text-on-surface-variant" href="#">Características</a>
+<a class="text-label-md font-label-md text-on-surface-variant" href="#">Precios</a>
+<a class="text-label-md font-label-md text-on-surface-variant" href="#">Contacto</a>
+<button class="w-full bg-secondary text-on-secondary px-md py-sm rounded-lg text-label-md font-label-md shadow-sm mt-sm">
+                 Comenzar
+             </button>
+</nav>
+</header>
+<main class="flex-grow pt-16 flex flex-col">
+<!-- Hero Section Mobile Optimized -->
+<section class="flex flex-col items-center justify-center text-center px-margin-mobile py-xl bg-surface-container-low flex-grow">
+<h1 class="text-headline-lg-mobile font-headline-lg-mobile text-primary mb-sm">
+                Control Total de tu Negocio
+            </h1>
+<p class="text-body-md font-body-md text-on-surface-variant mb-lg max-w-md">
+                S&amp;S te ofrece el sistema de stock y ventas más eficiente. Minimiza errores, maximiza ganancias y organiza tu inventario desde cualquier dispositivo.
+            </p>
+<button class="bg-secondary text-on-secondary px-lg py-sm rounded-lg text-body-md font-body-md font-semibold hover:bg-on-secondary-fixed-variant transition-colors shadow-sm w-full max-w-xs">
+                Prueba Gratuita
+            </button>
+</section>
+<!-- Features Section -->
+<section class="px-margin-mobile py-xl bg-surface-container-lowest flex flex-col gap-lg">
+<div class="text-center mb-sm">
+<h2 class="text-headline-sm font-headline-sm text-primary">Características Principales</h2>
+</div>
+<div class="flex flex-col gap-md">
+<!-- Feature 1 -->
+<div class="bg-surface p-md rounded-xl shadow-sm flex items-start gap-md border border-outline-variant/30">
+<div class="bg-primary-fixed text-on-primary-fixed p-xs rounded-lg flex-shrink-0">
+<span class="material-symbols-outlined" data-weight="fill">inventory_2</span>
+</div>
+<div>
+<h3 class="text-body-lg font-body-lg font-semibold text-primary mb-base">Gestión de Inventario</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Mantén un registro preciso de tus productos en tiempo real.</p>
+</div>
+</div>
+<!-- Feature 2 -->
+<div class="bg-surface p-md rounded-xl shadow-sm flex items-start gap-md border border-outline-variant/30">
+<div class="bg-secondary-fixed text-on-secondary-fixed p-xs rounded-lg flex-shrink-0">
+<span class="material-symbols-outlined" data-weight="fill">point_of_sale</span>
+</div>
+<div>
+<h3 class="text-body-lg font-body-lg font-semibold text-primary mb-base">Punto de Venta</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Facturación rápida y sencilla para agilizar la atención al cliente.</p>
+</div>
+</div>
+<!-- Feature 3 -->
+<div class="bg-surface p-md rounded-xl shadow-sm flex items-start gap-md border border-outline-variant/30">
+<div class="bg-tertiary-fixed text-on-tertiary-fixed p-xs rounded-lg flex-shrink-0">
+<span class="material-symbols-outlined" data-weight="fill">bar_chart</span>
+</div>
+<div>
+<h3 class="text-body-lg font-body-lg font-semibold text-primary mb-base">Reportes Detallados</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Analiza tus ventas y toma decisiones basadas en datos.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-lg max-w-7xl mx-auto gap-md text-center md:text-left">
+<div class="text-headline-sm font-headline-sm font-bold text-primary mb-sm md:mb-0">
+                S&amp;S
+            </div>
+<div class="flex flex-col gap-sm">
+<a class="text-label-sm font-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Privacidad</a>
+<a class="text-label-sm font-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Términos</a>
+<a class="text-label-sm font-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Soporte</a>
+</div>
+<div class="text-body-sm font-body-sm text-on-surface mt-sm md:mt-0">
+                © 2024 S&amp;S Sistema de Stock y Ventas. Todos los derechos reservados.
+            </div>
+</div>
+</footer>
+<script>
+        document.getElementById('mobile-menu-toggle').addEventListener('click', function() {
+            var menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+    </script>
+</body></html>
